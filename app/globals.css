@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 300 29% 96%;
+        --background-light: 204 100% 96%;
+        --foreground: 222 24% 16%;
+
+        --card: 0 0% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 3.9%;
+        --popover-foreground: 0 0% 98%;
+
+        --primary: 262 100% 58%;
+        --primary-foreground: 0 0% 13%;
+        --secondary: 193 100% 47%;
+        --secondary-foreground: 0 0% 13%;
+        --muted: 210 28% 91%;
+        --muted-foreground: 220 13% 38%;
+        --accent: 324 55% 94%;
+        --accent-foreground: 222 24% 16%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 216 28% 84%;
+        --input: 216 28% 84%;
+        --ring: 205 90% 55%;
+        --chart-1: 220 70% 50%;
+        --chart-2: 160 60% 45%;
+        --chart-3: 30 80% 55%;
+        --chart-4: 280 65% 60%;
+        --chart-5: 340 75% 55%;
+        --app-background:
+            radial-gradient(
+                circle at 15% 15%,
+                rgba(247, 216, 234, 0.45) 0%,
+                transparent 35%
+            ),
+            radial-gradient(
+                circle at 90% 40%,
+                rgba(191, 231, 255, 0.45) 0%,
+                transparent 40%
+            ),
+            linear-gradient(90deg, #f8f3f7 0%, #fafafa 50%, #edf7ff 100%);
+    }
+}
+
+@layer base {
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    * {
+        @apply border-border !cursor-none;
+    }
+    body {
+        @apply bg-background text-foreground font-roboto-flex;
+        background: var(--app-background);
+        background-attachment: fixed;
+    }
+}
+
+@layer components {
+    .grid {
+        @apply gap-[25px];
+    }
+
+    .markdown-text ul {
+        @apply pl-5 mt-2 list-disc;
+    }
+
+    .preloader-item {
+        background: #ffffff;
+    }
+}
