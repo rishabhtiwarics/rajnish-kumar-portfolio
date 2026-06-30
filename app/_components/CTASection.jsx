@@ -1,4 +1,4 @@
-﻿import Button from '@/components/Button';
+import Button from '@/components/Button';
 import SectionTitle from '@/components/SectionTitle';
 import { GENERAL_INFO } from '@/lib/data';
 
@@ -33,7 +33,7 @@ const CTASection = () => {
                     <div className="relative z-[1] flex flex-wrap items-center justify-center gap-4 ">
                         <Button
                             as="link"
-                            href={GENERAL_INFO.upworkProfile}
+                            href="https://launchveda.com/"
                             target="_blank"
                             rel="noopener noreferrer"
                             variant="primary"

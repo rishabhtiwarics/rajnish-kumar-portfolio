@@ -36,10 +36,11 @@ const ParticleBackground = () => {
         particlesRef.current.forEach((particle) => {
             if (!particle)
                 return;
+            const isSmallScreen = window.innerWidth < 1024;
             gsap.set(particle, {
                 width: Math.random() * 3 + 1,
                 height: Math.random() * 3 + 1,
-                opacity: Math.random() * 0.35 + 0.55,
+                opacity: isSmallScreen ? Math.random() * 0.16 + 0.16 : Math.random() * 0.35 + 0.55,
                 left: Math.random() * window.innerWidth,
                 top: Math.random() * (window.innerHeight + 1),
             });
@@ -81,7 +82,7 @@ const ParticleBackground = () => {
             }} className="absolute hidden rounded-full border border-primary/40 bg-white/20 shadow-[inset_0_0_28px_rgba(255,255,255,0.42),0_18px_55px_rgba(124,41,255,0.14)] backdrop-blur-md 2xl:block"/>))}
             {[...Array(100)].map((_, i) => (<div key={i} ref={(el) => {
                 particlesRef.current[i] = el;
-            }} className="absolute rounded-full bg-primary/80 shadow-[0_0_14px_rgba(124,41,255,0.55)]"/>))}
+            }} className="absolute rounded-full bg-primary/80 shadow-[0_0_14px_rgba(124,41,255,0.55)] max-lg:bg-primary/25 max-lg:shadow-[0_0_10px_rgba(124,41,255,0.16)]"/>))}
         </div>);
 };
 export default ParticleBackground;

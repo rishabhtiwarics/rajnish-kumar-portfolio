@@ -5,10 +5,10 @@ import { MoveUpRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
 const COLORS = [
-    'bg-yellow-500 text-black',
-    'bg-blue-500 text-white',
-    'bg-teal-500 text-black',
-    'bg-indigo-500 text-white',
+    'bg-primary text-white',
+    'bg-white/40 text-primary ring-1 ring-primary/30',
+    'bg-secondary text-black',
+    'bg-foreground text-white',
 ];
 const MENU_LINKS = [
     {
@@ -17,7 +17,7 @@ const MENU_LINKS = [
     },
     {
         name: 'About',
-        url: '/#about-me',
+        url: '/about',
     },
     {
         name: 'Journey',
@@ -50,7 +50,7 @@ const Navbar = () => {
         })} onClick={() => setIsMenuOpen(false)}></div>
 
             <div className={cn('fixed top-0 right-0 h-[100dvh] w-[500px] max-w-[calc(100vw-3rem)] transform translate-x-full transition-transform duration-700 z-[3] overflow-hidden gap-y-14', 'flex flex-col lg:justify-center py-10', { 'translate-x-0': isMenuOpen })}>
-                <div className={cn('fixed inset-0 scale-150 translate-x-1/2 rounded-[50%] bg-background-light duration-700 delay-150 z-[-1]', {
+                <div className={cn('fixed inset-0 scale-150 translate-x-1/2 rounded-[50%] bg-background-light/90 backdrop-blur-xl duration-700 delay-150 z-[-1]', {
             'translate-x-0': isMenuOpen,
         })}></div>
 
