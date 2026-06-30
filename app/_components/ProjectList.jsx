@@ -78,7 +78,7 @@ const ProjectList = () => {
         }
         setSelectedProject(slug);
     };
-    return (<section className="pb-section" id="selected-projects">
+    return (<section className="pb-0 md:pb-section" id="selected-projects">
             <div className="container">
                 <SectionTitle title="The Framework"/>
 
@@ -90,7 +90,7 @@ const ProjectList = () => {
                 })} ref={imageRef} key={project.slug}/>))}
                         </div>)}
 
-                    <div className="flex flex-col max-md:gap-10" ref={projectListRef}>
+                    <div className="flex flex-col max-md:gap-0" ref={projectListRef}>
                         {PROJECTS.map((project, index) => (<Project index={index} project={project} selectedProject={selectedProject} onMouseEnter={handleMouseEnter} key={project.slug}/>))}
                     </div>
                 </div>

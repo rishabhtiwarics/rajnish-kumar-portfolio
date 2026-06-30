@@ -141,14 +141,14 @@ const Banner = () => {
                     </div>
                 </div>
 
-                <div className="relative mt-8 h-[520px] w-full max-w-[900px] sm:h-[620px]">
+                <div className="relative mt-8 grid h-auto w-full max-w-[900px] grid-cols-6 gap-4 pb-2 lg:block lg:h-[620px] lg:pb-0">
                     <div ref={threeMountRef} className="pointer-events-none absolute inset-0 z-0 opacity-50"></div>
-                    <div className="slide-up-and-fade absolute bottom-8 left-1/2 z-[1] h-[470px] w-[315px] -translate-x-1/2 sm:h-[570px] sm:w-[390px]">
+                    <div className="slide-up-and-fade relative left-1/2 z-[1] col-span-full block h-[360px] w-[315px] -translate-x-1/2 max-lg:block sm:h-[430px] sm:w-[390px] lg:absolute lg:bottom-8 lg:h-[570px]">
                         <Image src={HERO_IMAGE} alt="Founder Image (Rajnish Kumar)" fill priority sizes="(max-width: 768px) 315px, 390px" className="object-contain object-bottom drop-shadow-[0_28px_42px_rgba(35,35,55,0.22)]"/>
                         <div ref={imageFadeRef} className="pointer-events-none absolute inset-x-[-24px] bottom-0 h-24 origin-bottom bg-gradient-to-t from-[#edf7ff] via-[#edf7ff]/70 to-transparent"></div>
                     </div>
 
-                    <div className="slide-up-and-fade absolute left-4 top-[160px] z-[3] w-[168px] rounded-2xl border border-white/85 bg-white/92 p-3.5 text-left shadow-[0_20px_45px_rgba(35,35,55,0.14)] backdrop-blur sm:left-[112px] sm:top-[188px]">
+                    <div className="slide-up-and-fade relative z-[3] col-span-3 min-h-[92px] w-full rounded-2xl border border-white/85 bg-white/92 p-3.5 text-left shadow-[0_20px_45px_rgba(35,35,55,0.14)] backdrop-blur md:col-span-2 lg:absolute lg:left-[112px] lg:top-[188px] lg:w-[168px] lg:min-h-0">
                         <p className="text-xs font-semibold text-foreground">10+ Years</p>
                         <p className="mt-1 text-[11px] text-muted-foreground">
                             Industry Experience
@@ -158,7 +158,7 @@ const Banner = () => {
                         </div>
                     </div>
 
-                    <div className="slide-up-and-fade absolute right-3 top-[196px] z-[3] w-[228px] rotate-[3deg] rounded-2xl border border-white/85 bg-white/92 p-3.5 text-left shadow-[0_20px_45px_rgba(35,35,55,0.14)] backdrop-blur sm:right-[78px] sm:top-[226px]">
+                    <div className="slide-up-and-fade relative z-[3] col-span-3 min-h-[92px] w-full rounded-2xl border border-white/85 bg-white/92 p-3.5 text-left shadow-[0_20px_45px_rgba(35,35,55,0.14)] backdrop-blur md:col-span-2 lg:absolute lg:right-[78px] lg:top-[226px] lg:w-[228px] lg:min-h-0 lg:rotate-[3deg]">
                         <div className="flex items-start gap-3">
                             <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
                                 <MessageCircle size={16}/>
@@ -174,7 +174,7 @@ const Banner = () => {
                         </div>
                     </div>
 
-                    <div className="slide-up-and-fade absolute bottom-[108px] left-5 z-[3] w-[192px] -rotate-[3deg] rounded-2xl border border-white/85 bg-white/92 p-3.5 text-left shadow-[0_20px_45px_rgba(35,35,55,0.14)] backdrop-blur sm:bottom-[142px] sm:left-[88px]">
+                    <div className="slide-up-and-fade relative z-[3] col-span-6 min-h-[92px] w-full rounded-2xl border border-white/85 bg-white/92 p-3.5 text-left shadow-[0_20px_45px_rgba(35,35,55,0.14)] backdrop-blur md:col-span-2 lg:absolute lg:bottom-[142px] lg:left-[88px] lg:w-[192px] lg:min-h-0 lg:-rotate-[3deg]">
                         <p className="text-[11px] text-muted-foreground">
                             Complete business growth
                         </p>

@@ -47,6 +47,16 @@ const CARDS = [
 const CoreCompetencies = () => {
     const container = React.useRef(null);
     const [activeIndex, setActiveIndex] = React.useState(0);
+    const [isBelowLg, setIsBelowLg] = React.useState(false);
+
+    React.useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 1023px)');
+        const handleChange = () => setIsBelowLg(mediaQuery.matches);
+        handleChange();
+        mediaQuery.addEventListener('change', handleChange);
+
+        return () => mediaQuery.removeEventListener('change', handleChange);
+    }, []);
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -92,16 +102,16 @@ const CoreCompetencies = () => {
             <div className="container" ref={container}>
                 <SectionTitle title="Core Competencies" className="core-reveal slide-up-and-fade pb-3 border-b mb-9"/>
 
-                <div className="core-reveal mb-8 grid items-start gap-6 lg:grid-cols-12">
+                <div className="core-reveal mb-8 grid items-start gap-6 max-md:text-center lg:grid-cols-12">
                     <div className="lg:col-span-7">
-                        <h2 className="max-w-[720px] font-anton text-[28px] leading-[.95] text-foreground sm:text-[38px] lg:text-[48px]">
+                        <h2 className="max-w-[720px] font-anton text-[28px] leading-[.95] text-foreground max-md:mx-auto sm:text-[38px] lg:text-[48px]">
                             Business Verticals
                             <span className="mx-3 inline-block h-1.5 w-12 rounded-full bg-primary align-middle"></span>
                             built to scale.
                         </h2>
                     </div>
                     <div className="lg:col-span-5">
-                        <p className="max-w-[430px] text-base leading-7 text-muted-foreground lg:ml-auto">
+                        <p className="max-w-[430px] text-base leading-7 text-muted-foreground max-md:mx-auto lg:ml-auto">
                             Premium formulation, manufacturing, scent
                             architecture, and D2C growth systems connected into
                             one launch-ready business engine.
@@ -117,7 +127,7 @@ const CoreCompetencies = () => {
                     onMouseLeave={() => setActiveIndex(0)}
                 >
                     {CARDS.map(({ title, detail, image, Icon, position }, index) => {
-                        const isActive = activeIndex === index;
+                        const isActive = isBelowLg || activeIndex === index;
 
                         return (
                             <article

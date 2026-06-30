@@ -51,14 +51,14 @@ const AboutMe = () => {
 
                 <SectionTitle title="Founder Profile" className="slide-up-and-fade pb-3 border-b mb-9"/>
 
-                <div className="grid md:grid-cols-12">
+                <div className="grid max-md:text-center md:grid-cols-12">
                     <div className="md:col-span-5">
                         <p className="text-5xl slide-up-and-fade">
                             Hi, I&apos;m Rajnish Kumar.
                         </p>
                     </div>
                     <div className="md:col-span-7">
-                        <div className="text-lg text-muted-foreground max-w-[450px]">
+                        <div className="text-lg text-muted-foreground max-w-[450px] max-md:mx-auto">
                             <p className="slide-up-and-fade">
                                 I&apos;m the founder of Launchveda, an end-to-end
                                 brand launch partner helping entrepreneurs move
