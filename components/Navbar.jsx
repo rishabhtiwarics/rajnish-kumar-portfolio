@@ -9,6 +9,7 @@ const COLORS = [
     'bg-white/40 text-primary ring-1 ring-primary/30',
     'bg-secondary text-black',
     'bg-foreground text-white',
+    'bg-primary/15 text-primary ring-1 ring-primary/25',
 ];
 const MENU_LINKS = [
     {
@@ -26,6 +27,10 @@ const MENU_LINKS = [
     {
         name: 'Launch Work',
         url: '/#selected-projects',
+    },
+    {
+        name: 'Contact',
+        url: '/contact',
     },
 ];
 const Navbar = () => {
