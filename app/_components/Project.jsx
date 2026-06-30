@@ -71,14 +71,14 @@ const Project = ({ index, project, selectedProject, onMouseEnter }) => {
     return (<TransitionLink href={`/projects/${project.slug}`} className="project-item group leading-none py-5 md:border-b first:!pt-0 last:pb-0 last:border-none md:group-hover/projects:opacity-30 md:hover:!opacity-100 transition-all" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             {selectedProject === null && (<Image src={project.thumbnail} alt="Project" width="300" height="200" className={cn('w-full object-cover mb-6 aspect-[3/2] object-top')} key={project.slug} loading="lazy"/>)}
             <div className="flex gap-2 md:gap-5">
-                <div className="font-anton text-muted-foreground">
+                <div className="pt-1 font-anton text-sm text-muted-foreground sm:text-base md:pt-2">
                     _{(index + 1).toString().padStart(2, '0')}.
                 </div>
-                <div className="">
-                    <h4 className="text-4xl xs:text-6xl flex gap-4 font-anton transition-all duration-700 bg-gradient-to-r from-primary to-foreground from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left">
+                <div className="min-w-0">
+                    <h4 className="flex items-start gap-2 break-words text-[2rem] leading-[0.95] xs:text-[2.35rem] sm:gap-3 sm:text-5xl lg:text-[3.25rem] xl:text-[3.75rem] font-anton transition-all duration-700 bg-gradient-to-r from-primary to-foreground from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left">
                         {project.title}
-                        <span className="text-foreground opacity-0 group-hover:opacity-100 transition-all">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ref={externalLinkSVGRef}>
+                        <span className="mt-1 shrink-0 text-foreground opacity-0 group-hover:opacity-100 transition-all sm:mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="size-6 sm:size-8 lg:size-9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" ref={externalLinkSVGRef}>
                                 <path id="box" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                 <path id="arrow-line" d="M10 14 21 3"></path>
                                 <path id="arrow-curb" d="M15 3h6v6"></path>

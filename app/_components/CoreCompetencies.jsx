@@ -209,7 +209,7 @@ const CoreCompetencies = () => {
                     })}
                 </div>
 
-                <p className="core-reveal slide-up-and-fade mx-auto mt-20 mb-8 max-w-[760px] text-center text-base leading-7 text-muted-foreground sm:text-lg">
+                <p className="core-reveal slide-up-and-fade mx-auto mt-8 mb-0 max-w-[760px] text-center text-base leading-7 text-muted-foreground sm:text-lg">
                     Founder Rajnish builds every launch around focused capabilities,
                     sharp systems, and the discipline to scale with purpose.
                 </p>

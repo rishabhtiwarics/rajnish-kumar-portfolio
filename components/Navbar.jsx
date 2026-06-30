@@ -42,8 +42,8 @@ const Navbar = () => {
     }, []);
     return (<>
             <div className="sticky top-0 z-[4]">
-                <button className={cn('group size-12 absolute top-5 right-5 md:right-10 z-[2] rounded-full transition-all duration-500 ease-out', {
-                    'border border-white/70 bg-white/55 shadow-[0_14px_35px_rgba(35,35,55,0.12)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/35': hasScrolled && !isMenuOpen,
+                <button className={cn('group size-12 absolute top-5 right-5 md:right-10 z-[2] rounded-none border border-primary/25 transition-all duration-500 ease-out', {
+                    'border-primary/35 bg-white/55 shadow-[0_14px_35px_rgba(35,35,55,0.12)] backdrop-blur-xl supports-[backdrop-filter]:bg-white/35': hasScrolled && !isMenuOpen,
                 })} onClick={() => setIsMenuOpen(!isMenuOpen)}>
                     <span className={cn('inline-block w-3/5 h-0.5 bg-foreground rounded-full absolute left-1/2 -translate-x-1/2 top-1/2 duration-300 -translate-y-[5px] ', {
             'rotate-45 -translate-y-1/2': isMenuOpen,
