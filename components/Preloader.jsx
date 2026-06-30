@@ -28,18 +28,18 @@ const Preloader = () => {
         }, '<1');
     }, { scope: preloaderRef });
     return (<div className="fixed inset-0 z-[6] flex" ref={preloaderRef}>
-            <div className="preloader-item h-full w-[10%]"></div>
-            <div className="preloader-item h-full w-[10%]"></div>
-            <div className="preloader-item h-full w-[10%]"></div>
-            <div className="preloader-item h-full w-[10%]"></div>
-            <div className="preloader-item h-full w-[10%]"></div>
-            <div className="preloader-item h-full w-[10%]"></div>
-            <div className="preloader-item h-full w-[10%]"></div>
-            <div className="preloader-item h-full w-[10%]"></div>
-            <div className="preloader-item h-full w-[10%]"></div>
-            <div className="preloader-item h-full w-[10%]"></div>
+            <div className="preloader-item h-full w-[20%] md:w-[10%]"></div>
+            <div className="preloader-item hidden h-full w-[10%] md:block"></div>
+            <div className="preloader-item h-full w-[20%] md:w-[10%]"></div>
+            <div className="preloader-item hidden h-full w-[10%] md:block"></div>
+            <div className="preloader-item h-full w-[20%] md:w-[10%]"></div>
+            <div className="preloader-item hidden h-full w-[10%] md:block"></div>
+            <div className="preloader-item h-full w-[20%] md:w-[10%]"></div>
+            <div className="preloader-item hidden h-full w-[10%] md:block"></div>
+            <div className="preloader-item h-full w-[20%] md:w-[10%]"></div>
+            <div className="preloader-item hidden h-full w-[10%] md:block"></div>
 
-            <p className="name-text flex text-[12vw] lg:text-[140px] font-anton text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-none overflow-hidden">
+            <p className="name-text flex text-[13vw] sm:text-[11vw] lg:text-[140px] font-anton text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 leading-none overflow-hidden">
                 <span className="inline-block translate-y-full">R</span>
                 <span className="inline-block translate-y-full">A</span>
                 <span className="inline-block translate-y-full">J</span>
