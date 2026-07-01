@@ -10,6 +10,7 @@ import { CheckCircle, Factory, Gem, Leaf, Sparkles, TrendingUp, Users } from 'lu
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import CTASection from '../_components/CTASection';
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const STATS = [
@@ -23,32 +24,44 @@ const DIFFERENTIATORS = [
     {
         Icon: TrendingUp,
         title: 'End-to-End Launch',
-        desc: 'From idea clarity to market-ready — formulation, packaging, compliance and launch under one roof.',
+        detail: 'Idea to market-ready brand',
+        desc: 'From idea clarity to market-ready formulation, packaging, compliance and launch under one roof.',
+        image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=85',
     },
     {
         Icon: Factory,
         title: 'Manufacturing Systems',
+        detail: 'Production infrastructure',
         desc: 'Production infrastructure and vendor networks built over a decade of hands-on industry work.',
+        image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=85',
     },
     {
         Icon: Gem,
         title: 'Luxury Perfumery',
+        detail: '100+ scent architectures',
         desc: '100+ scent architectures across niche, mass-market and luxury perfume brands.',
+        image: 'https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=1000&q=85',
     },
     {
         Icon: Leaf,
         title: 'Ayurveda & Cosmetics',
+        detail: 'Scientific formulation systems',
         desc: 'Scientific formulation systems for Ayurveda, cosmetics and wellness products.',
+        image: 'https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=1000&q=85',
     },
     {
         Icon: Users,
         title: 'Brand Strategy',
+        detail: 'Positioning and storytelling',
         desc: 'Sharp positioning, storytelling and digital experience that builds trust from day one.',
+        image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1000&q=85',
     },
     {
         Icon: CheckCircle,
         title: 'Proven Track Record',
-        desc: '200+ brands across India and globally — startups to established names — all launched successfully.',
+        detail: '200+ brands launched',
+        desc: '200+ brands across India and globally, from startups to established names, all launched successfully.',
+        image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1000&q=85',
     },
 ];
 
@@ -184,52 +197,9 @@ export default function ImpactClient() {
             </div>
 
 
-            {/* ── WHAT MAKES LAUNCHVEDA DIFFERENT ──────────────────────── */}
-            <section ref={differentiatorRef} className="relative overflow-hidden pb-24 pt-20" id="what-makes-different">
-                <div className="container">
-                    <SectionTitle title="What Makes LaunchVeda Different" className="diff-card pb-3 border-b mb-9" />
-
-                    <div className="diff-card mb-8 grid items-start gap-6 max-md:text-center lg:grid-cols-12">
-                        <div className="lg:col-span-7">
-                            <h2 className="max-w-[720px] font-anton text-[28px] leading-[.95] text-foreground max-md:mx-auto sm:text-[38px] lg:text-[48px]">
-                                End-to-End Brand
-                                <span className="mx-3 inline-block h-1.5 w-12 rounded-full bg-primary align-middle" />
-                                Launch Partner.
-                            </h2>
-                        </div>
-                        <div className="lg:col-span-5">
-                            <p className="max-w-[430px] text-base leading-7 text-muted-foreground max-md:mx-auto lg:ml-auto">
-                                From formulation science to brand storytelling — every capability is connected into one launch-ready business engine.
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* 6-card grid — same card style as home */}
-                    <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                        {DIFFERENTIATORS.map(({ Icon, title, desc }) => (
-                            <div
-                                key={title}
-                                className="diff-card group relative overflow-hidden rounded-[28px] border border-white/80 bg-white/92 p-7 shadow-[0_20px_45px_rgba(35,35,55,0.12)] backdrop-blur transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_28px_60px_rgba(35,35,55,0.18)]"
-                            >
-                                {/* Subtle hover glow */}
-                                <div className="pointer-events-none absolute inset-0 rounded-[28px] opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                                    style={{ background: 'radial-gradient(circle at 50% 0%, rgba(139,92,246,0.07) 0%, transparent 65%)' }}
-                                />
-
-                                <span className="mb-5 flex size-12 items-center justify-center rounded-full border border-primary/15 bg-primary/8 text-primary">
-                                    <Icon size={20} />
-                                </span>
-                                <h3 className="font-anton text-[1.15rem] uppercase leading-tight tracking-wide text-foreground">{title}</h3>
-                                <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">{desc}</p>
-                            </div>
-                        ))}
-                    </div>
-
-                    <p className="mx-auto mt-10 max-w-[760px] text-center text-base leading-7 text-muted-foreground sm:text-lg">
-                        Founder Rajnish builds every launch around focused capabilities, sharp systems, and the discipline to scale with purpose.
-                    </p>
-                </div>
-            </section>
+             <div className="">
+                <CTASection />
+            </div>
 
 
 
