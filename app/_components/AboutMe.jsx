@@ -76,21 +76,21 @@ const AboutMe = () => {
                 </div>
 
                 <div className="slide-up-and-fade mb-16 mt-8 overflow-hidden border-y border-primary/10 py-5">
-                    <div className="flex w-max animate-[about-marquee_24s_linear_infinite] items-center gap-8 font-anton text-3xl uppercase leading-none text-primary/20 sm:text-5xl">
+                    <div className="flex w-max animate-[about-marquee_24s_linear_infinite] items-center gap-8 font-anton text-3xl uppercase leading-none text-primary sm:text-primary/20 sm:text-5xl">
                         <span>10+ Years Experience</span>
-                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000"/>
+                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000"/>
                         <span>200+ Brands</span>
-                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000"/>
+                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000"/>
                         <span>500+ Formulations</span>
-                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000"/>
+                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000"/>
                         <span>100+ Perfume Brand Associations</span>
-                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000"/>
+                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000"/>
                         <span>10+ Years Experience</span>
-                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000"/>
+                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000"/>
                         <span>200+ Brands</span>
-                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000"/>
+                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000"/>
                         <span>500+ Formulations</span>
-                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000"/>
+                        <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000"/>
                         <span>100+ Perfume Brand Associations</span>
                     </div>
                 </div>

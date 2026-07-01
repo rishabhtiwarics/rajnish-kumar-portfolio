@@ -7,31 +7,38 @@ import { SectionFlower } from '@/components/icons';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
+const categoryVisuals = [
+    {
+        title: 'Cosmetics',
+        image: 'https://images.unsplash.com/photo-1615397349754-cfa2066a298e?auto=format&fit=crop&w=500&q=85',
+    },
+    {
+        title: 'Perfume',
+        image: 'https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=500&q=85',
+    },
+    {
+        title: 'Ayurveda',
+        image: 'https://images.unsplash.com/photo-1600428877878-1a0fd85beda4?auto=format&fit=crop&w=500&q=85',
+    },
+];
+
 const stats = [
-    {
-        value: '10+',
-        label: 'Years Journey',
-        copy: 'A decade of building clarity across fragrance, beauty, and consumer brand launches.',
-    },
-    {
-        value: '200+',
-        label: 'Brands Worked With',
-        copy: 'Partnered with founders, manufacturers, and growing labels across launch stages.',
-    },
-    {
-        value: '500+',
-        label: 'Product Formulations',
-        copy: 'Hands-on exposure across perfume, personal care, and market-ready product systems.',
-    },
-    {
-        value: '100+',
-        label: 'Perfume Brand Associations',
-        copy: 'Deep network and category insight in fragrance-led business building.',
-    },
+    { value: '10+', label: 'Years Journey' },
+    { value: '200+', label: 'Brands Worked With' },
+    { value: '500+', label: 'Product Formulations' },
+    { value: '100+', label: 'Perfume Brand Associations' },
+];
+
+const typingWords = [
+    'Founder Rajnish',
+    'Brand Launch Expert',
+    'Perfume Launch Architect',
+    'Formulation Guide',
+    'Growth Systems Builder',
 ];
 
 const pillars = [
@@ -54,8 +61,31 @@ const pillars = [
 ];
 
 const AboutPageClient = () => {
+    const [typedText, setTypedText] = useState('');
+    const [wordIndex, setWordIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
     const containerRef = useRef(null);
+    useEffect(() => {
+        const currentWord = typingWords[wordIndex % typingWords.length];
+        const delay = isDeleting ? 45 : 85;
 
+        const timer = window.setTimeout(() => {
+            if (!isDeleting && typedText === currentWord) {
+                window.setTimeout(() => setIsDeleting(true), 800);
+                return;
+            }
+
+            if (isDeleting && typedText === '') {
+                setIsDeleting(false);
+                setWordIndex((index) => (index + 1) % typingWords.length);
+                return;
+            }
+
+            setTypedText((value) => currentWord.slice(0, value.length + (isDeleting ? -1 : 1)));
+        }, delay);
+
+        return () => window.clearTimeout(timer);
+    }, [typedText, isDeleting, wordIndex]);
     useGSAP(() => {
         const revealItems = gsap.utils.toArray('.about-reveal');
 
@@ -76,42 +106,42 @@ const AboutPageClient = () => {
 
     return (
         <div className="min-h-screen overflow-hidden pb-20 pt-24 sm:pb-24 sm:pt-32" ref={containerRef}>
-            <section className="container relative">
-                <SectionTitle title="About Rajnish Kumar" className="about-reveal relative z-[1] mb-8 justify-center text-center lg:justify-start lg:text-left" />
-
-                <div className="relative z-[1] grid min-h-0 items-center gap-8 py-6 text-center sm:gap-10 lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_430px_170px] lg:text-left">
-                    <div className="about-reveal mx-auto max-w-[560px] lg:mx-0 lg:max-w-[500px]">
-                        <p className="mb-3 font-anton text-2xl leading-none text-foreground sm:text-3xl">
-                            Hey, I&apos;m Rajnish,
-                        </p>
-                        <h1 className="font-anton text-[44px] uppercase leading-[0.95] text-foreground xs:text-[52px] sm:text-[68px] md:text-[78px] lg:text-[96px]">
-                            Founder & <span className="text-primary">Brand</span>
-                            <span className="block">Launch</span>
-                            <span className="text-primary">Expert</span>
-                        </h1>
-                        <p className="mx-auto mt-6 max-w-[430px] text-base leading-7 text-muted-foreground lg:mx-0 lg:mt-7">
-                            I help fragrance, beauty, and consumer-product founders turn ideas into clear, credible, market-ready brands.
-                        </p>
+            <section className="container relative py-8 sm:py-10 lg:py-12">
+                <div className="about-reveal mx-auto max-w-[1060px] text-center">
+                    <SectionTitle title="Founder Profile" className="mb-6 justify-center" />
+                    <div className="mx-auto mb-6 flex w-full max-w-[760px] items-center justify-center gap-3 border border-primary/15 bg-white/35 px-4 py-3 text-center text-sm text-foreground backdrop-blur-xl sm:text-base">
+                        <span>We are a brand launch studio led by founder Rajnish Kumar.</span>
+                        <span className="relative flex size-9 shrink-0 overflow-hidden rounded-full border border-primary/20 bg-white">
+                            <Image src="/founder.png" alt="Rajnish Kumar" fill priority sizes="36px" className="object-cover object-top" />
+                        </span>
                     </div>
-
-                    <div className="about-reveal relative mx-auto aspect-[4/5] w-[min(100%,360px)] overflow-hidden rounded-b-[48%] rounded-t-[2px] sm:w-full sm:max-w-[430px]">
-                        <Image
-                            src="/founder.png"
-                            alt="Rajnish Kumar"
-                            fill
-                            sizes="(min-width: 1024px) 430px, 85vw"
-                            className="object-cover object-center drop-shadow-[0_34px_46px_rgba(31,35,48,0.18)]"
-                            priority
-                        />
+                    <h1 className="font-anton text-[40px] uppercase leading-[0.9] text-foreground xs:text-[48px] sm:text-[64px] md:text-[78px] lg:text-[92px]">
+                        Launch clarity
+                        <span className="block">for fragrance</span>
+                        <span className="text-primary">and beauty brands.</span>
+                        <span className="ml-[0.12em] inline-flex translate-y-[-0.1em] items-center align-middle">
+                            {categoryVisuals.map((item) => (
+                                <span key={item.title} className="relative -ml-[0.18em] first:ml-0 block h-[0.8em] w-[0.75em] overflow-hidden rounded-[0.2em] border-[0.025em] border-white bg-white shadow-[0_0.1em_0.25em_rgba(35,35,55,0.16)] first:rotate-[-8deg] odd:-rotate-6 even:rotate-6">
+                                    <Image src={item.image} alt={item.title} fill sizes="12vw" className="object-cover" />
+                                </span>
+                            ))}
+                        </span>
+                    </h1>
+                    <div className="mx-auto mt-6 inline-flex min-h-14 min-w-[min(100%,360px)] items-center justify-center border border-primary/15 bg-white/35 px-4 text-center font-anton text-2xl uppercase leading-none text-primary backdrop-blur-sm sm:text-3xl">
+                        {typedText}
+                        <span className="ml-1 inline-block h-7 w-0.5 animate-pulse bg-primary sm:h-8"></span>
                     </div>
-
-                    <div className="mx-auto grid w-full max-w-[560px] grid-cols-4 gap-2 text-center sm:gap-4 lg:mx-0 lg:block lg:max-w-none lg:space-y-10 lg:text-right">
+                    <p className="mx-auto mt-6 max-w-[650px] text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8">
+                        Rajnish helps founders shape product ideas, perfume launches, brand stories, and growth systems into a market-ready business direction.
+                    </p>
+                    
+                    <div className="about-reveal mx-auto mt-12 grid w-full max-w-5xl grid-cols-2 gap-8 px-4 sm:mt-16 sm:grid-cols-4 sm:gap-6 lg:px-8">
                         {stats.map((item) => (
-                            <div key={item.label}>
-                                <p className="font-anton text-2xl leading-none text-foreground xs:text-3xl sm:text-4xl lg:text-5xl">
+                            <div key={item.label} className="text-center">
+                                <p className="font-anton text-4xl leading-none text-foreground sm:text-5xl lg:text-6xl">
                                     {item.value}
                                 </p>
-                                <p className="mt-1 text-[9px] leading-3 text-muted-foreground xs:text-[10px] sm:mt-2 sm:text-[11px] sm:leading-4">
+                                <p className="mx-auto mt-2 max-w-[140px] text-xs leading-4 text-muted-foreground sm:text-sm sm:leading-5">
                                     {item.label}
                                 </p>
                             </div>
@@ -154,25 +184,25 @@ const AboutPageClient = () => {
             </section>
 
             <section className="about-reveal container mt-12 overflow-hidden border-y border-primary/10 py-5 sm:mt-14">
-                <div className="flex w-max animate-[about-page-marquee_24s_linear_infinite] items-center gap-8 font-anton text-3xl uppercase leading-none text-primary/25 sm:text-5xl">
+                <div className="flex w-max animate-[about-page-marquee_24s_linear_infinite] items-center gap-8 font-anton text-3xl uppercase leading-none text-primary sm:text-primary/25 sm:text-5xl">
                     <span>Industry Experience</span>
-                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000" />
+                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000" />
                     <span>Brand Launch Strategy</span>
-                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000" />
+                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000" />
                     <span>Fragrance Expertise</span>
-                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000" />
+                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000" />
                     <span>Founder-Led Execution</span>
-                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000" />
+                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000" />
                     <span>Market-Ready Brands</span>
-                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000" />
+                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000" />
                     <span>Industry Experience</span>
-                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000" />
+                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000" />
                     <span>Brand Launch Strategy</span>
-                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000" />
+                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000" />
                     <span>Fragrance Expertise</span>
-                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000" />
+                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000" />
                     <span>Founder-Led Execution</span>
-                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-25 duration-7000" />
+                    <SectionFlower width={25} className="shrink-0 animate-spin opacity-100 sm:opacity-25 duration-7000" />
                     <span>Market-Ready Brands</span>
                 </div>
             </section>
