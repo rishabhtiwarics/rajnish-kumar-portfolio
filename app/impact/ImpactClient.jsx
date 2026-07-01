@@ -119,7 +119,7 @@ export default function ImpactClient() {
                 id="impact-hero"
             >
                 <ArrowAnimation className="!bottom-8" />
-                <div className="container min-h-[100svh] pt-28 pb-24 flex flex-col items-center justify-center">
+                <div className="container pt-28 pb-24 flex flex-col items-center justify-center">
                     <div className="relative z-[1] mx-auto max-w-[780px] text-center">
 
                         {/* Badge */}

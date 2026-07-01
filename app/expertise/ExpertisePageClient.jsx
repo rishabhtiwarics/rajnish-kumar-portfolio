@@ -54,8 +54,9 @@ export default function ExpertisePageClient() {
 
     return (
         <div ref={containerRef} className="min-h-screen overflow-hidden pb-20 pt-24 sm:pb-24 sm:pt-32">
-            <section className="container relative min-h-[calc(100svh-6rem)] overflow-hidden py-6 sm:py-8 lg:py-10">
-                <div className="relative z-[1] grid items-center gap-8 py-6 text-center sm:gap-10 lg:min-h-[560px] lg:grid-cols-[minmax(0,1fr)_430px] lg:text-left">
+            <section className="container relative overflow-hidden pb-6 sm:pb-8 lg:pb-10">
+                <div className="relative z-[1] grid items-center gap-8 pb-6 text-center sm:gap-10 
+                 lg:grid-cols-[minmax(0,1fr)_430px] lg:text-left">
                     <div className="expertise-reveal mx-auto max-w-[560px] lg:mx-0 lg:max-w-[560px]">
                         <SectionTitle title="Launch Systems" className="mb-4 justify-center lg:justify-start" />
                         <h1 className="font-anton text-[44px] uppercase leading-[0.95] text-foreground xs:text-[52px] sm:text-[68px] md:text-[78px] lg:text-[96px]">
@@ -77,7 +78,7 @@ export default function ExpertisePageClient() {
                         </div>
                     </div>
 
-                    <div className="expertise-reveal relative mx-auto w-full max-w-[430px] overflow-visible">
+                    <div className="relative mx-auto w-full max-w-[430px] overflow-visible">
                         <div className="relative aspect-[4/5] overflow-hidden border border-white/90 bg-white/20 backdrop-blur-xl">
                             <Image
                                 src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=1300&q=85"
@@ -102,7 +103,7 @@ export default function ExpertisePageClient() {
 
                         </div>
                         <div className="absolute -bottom-8 -right-8 z-[2] hidden size-36 items-center justify-center rounded-full text-center sm:flex">
-                            <svg className="absolute inset-0 animate-[expertise-badge-spin_12s_linear_infinite] overflow-visible" viewBox="0 0 100 100" aria-hidden="true">
+                            <svg className="absolute inset-0 overflow-visible" viewBox="0 0 100 100" aria-hidden="true">
                                 <defs>
                                     <path id="expertise-badge-path" d="M50,50 m-35,0 a35,35 0 1,1 70,0 a35,35 0 1,1 -70,0" />
                                 </defs>

@@ -103,10 +103,23 @@ const AboutPageClient = () => {
             });
         });
     }, { scope: containerRef });
-
+    useGSAP(() => {
+        gsap.from('.about-stat-item', {
+            y: 70,
+            opacity: 0,
+            stagger: 0.08,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.about-stats-grid',
+                start: 'top 82%',
+                end: 'top 58%',
+                scrub: 0.45,
+            },
+        });
+    }, { scope: containerRef });
     return (
         <div className="min-h-screen overflow-hidden pb-20 pt-24 sm:pb-24 sm:pt-32" ref={containerRef}>
-            <section className="container relative py-8 sm:py-10 lg:py-12">
+            <section className="container relative pb-8 sm:pb-10 lg:pb-12">
                 <div className="about-reveal mx-auto max-w-[1060px] text-center">
                     <SectionTitle title="Founder Profile" className="mb-6 justify-center" />
                     <div className="mx-auto mb-6 flex w-full max-w-[760px] items-center justify-center gap-3 border border-primary/15 bg-white/35 px-4 py-3 text-center text-sm text-foreground backdrop-blur-xl sm:text-base">
@@ -115,10 +128,10 @@ const AboutPageClient = () => {
                             <Image src="/founder.png" alt="Rajnish Kumar" fill priority sizes="36px" className="object-cover object-top" />
                         </span>
                     </div>
-                    <h1 className="font-anton text-[40px] uppercase leading-[0.9] text-foreground xs:text-[48px] sm:text-[64px] md:text-[78px] lg:text-[92px]">
+                    <h1 className="font-anton text-[40px] uppercase leading-[0.95] text-foreground xs:text-[48px] sm:text-[64px] md:text-[78px] lg:text-[92px]">
                         Launch clarity
-                        <span className="block">for fragrance</span>
-                        <span className="text-primary">and beauty brands.</span>
+                        <span className="mt-1 block">for fragrance</span>
+                        <span className="mt-1 block text-primary">and beauty brands.</span>
                         <span className="ml-[0.12em] inline-flex translate-y-[-0.1em] items-center align-middle">
                             {categoryVisuals.map((item) => (
                                 <span key={item.title} className="relative -ml-[0.18em] first:ml-0 block h-[0.8em] w-[0.75em] overflow-hidden rounded-[0.2em] border-[0.025em] border-white bg-white shadow-[0_0.1em_0.25em_rgba(35,35,55,0.16)] first:rotate-[-8deg] odd:-rotate-6 even:rotate-6">
@@ -135,9 +148,9 @@ const AboutPageClient = () => {
                         Rajnish helps founders shape product ideas, perfume launches, brand stories, and growth systems into a market-ready business direction.
                     </p>
                     
-                    <div className="about-reveal mx-auto mt-12 grid w-full max-w-5xl grid-cols-2 gap-8 px-4 sm:mt-16 sm:grid-cols-4 sm:gap-6 lg:px-8">
+                    <div className="about-stats-grid mx-auto mt-12 grid w-full max-w-5xl grid-cols-2 gap-8 px-4 sm:mt-16 sm:grid-cols-4 sm:gap-6 lg:px-8">
                         {stats.map((item) => (
-                            <div key={item.label} className="text-center">
+                            <div key={item.label} className="about-stat-item text-center">
                                 <p className="font-anton text-4xl leading-none text-foreground sm:text-5xl lg:text-6xl">
                                     {item.value}
                                 </p>

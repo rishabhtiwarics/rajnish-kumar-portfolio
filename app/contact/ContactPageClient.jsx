@@ -1,6 +1,5 @@
 'use client';
 
-import { useRef } from 'react';
 import Image from 'next/image';
 import Button from '@/components/Button';
 import SectionTitle from '@/components/SectionTitle';
@@ -18,11 +17,6 @@ import {
     Sparkles,
     User,
 } from 'lucide-react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const contactLinks = [
     {
@@ -76,35 +70,16 @@ const fields = [
 ];
 
 export default function ContactPageClient() {
-    const containerRef = useRef(null);
-
-    useGSAP(() => {
-        const revealItems = gsap.utils.toArray('.contact-reveal');
-
-        revealItems.forEach((item) => {
-            gsap.from(item, {
-                y: 150,
-                opacity: 0,
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: item,
-                    start: 'top 88%',
-                    end: 'top 62%',
-                    scrub: 0.5,
-                },
-            });
-        });
-    }, { scope: containerRef });
     return (
-        <div className="min-h-screen overflow-hidden pb-14 pt-20 xs:pb-16 sm:pb-20 sm:pt-28 lg:pb-24 lg:pt-32" ref={containerRef}>
+        <div className="min-h-screen overflow-hidden pb-14 pt-20 xs:pb-16 sm:pb-20 sm:pt-28 lg:pb-24 lg:pt-32">
             <section className="container">
                 <SectionTitle
                     title="Contact Rajnish"
-                    className="contact-reveal mb-6 justify-center text-center sm:mb-8 xl:justify-start xl:text-left"
+                    className="mb-6 justify-center text-center sm:mb-8 xl:justify-start xl:text-left"
                 />
 
                 <div className="grid gap-5 sm:gap-6 lg:gap-8 xl:grid-cols-[minmax(280px,0.34fr)_minmax(0,0.66fr)] xl:gap-10">
-                    <aside className="contact-reveal relative overflow-hidden border border-white/80 bg-white/55 p-3 shadow-[0_24px_70px_rgba(35,35,55,0.12)] backdrop-blur-xl xs:p-4 sm:p-5 xl:min-h-[680px]">
+                    <aside className="relative overflow-hidden border border-white/80 bg-white/55 p-3 shadow-[0_24px_70px_rgba(35,35,55,0.12)] backdrop-blur-xl xs:p-4 sm:p-5 xl:min-h-[680px]">
                         <div className="relative mx-auto aspect-[4/5] max-h-[520px] w-full max-w-[420px] overflow-hidden rounded-b-[46%] rounded-t-[2px] bg-background-light md:max-w-[360px] xl:max-h-none xl:max-w-none">
                             <Image
                                 src="/founder.png"
@@ -159,7 +134,7 @@ export default function ContactPageClient() {
                     </aside>
 
                     <div className="min-w-0 border border-white/80 bg-white/70 p-4 shadow-[0_28px_90px_rgba(35,35,55,0.14)] backdrop-blur-xl xs:p-5 sm:p-7 lg:p-9">
-                        <div className="contact-reveal max-w-[760px] text-center sm:text-left">
+                        <div className="max-w-[760px] text-center sm:text-left">
                             <p className="text-balance font-anton text-[clamp(2.5rem,13vw,4rem)] uppercase leading-[0.95] text-foreground lg:text-[4.4rem]">
                                 Tell me about your
                                 <span className="text-primary"> launch.</span>
@@ -171,7 +146,7 @@ export default function ContactPageClient() {
 
                         <form
                             action={`mailto:${GENERAL_INFO.email}`}
-                            className="contact-reveal mt-7 grid gap-5 sm:mt-8"
+                            className="mt-7 grid gap-5 sm:mt-8"
                             encType="text/plain"
                             method="post"
                         >
@@ -265,7 +240,7 @@ export default function ContactPageClient() {
                                 </div>
                             </div>
                         </form>
-                        <div className="contact-reveal mt-8 overflow-hidden border border-primary/12 bg-white/65 shadow-[0_18px_55px_rgba(35,35,55,0.10)]">
+                        <div className="mt-8 overflow-hidden border border-primary/12 bg-white/65 shadow-[0_18px_55px_rgba(35,35,55,0.10)]">
                             <div className="flex flex-col gap-3 border-b border-primary/10 p-3 sm:flex-row sm:items-center sm:justify-between sm:p-4">
                                 <div className="flex items-center gap-3">
                                     <span className="flex size-11 shrink-0 items-center justify-center bg-background-light text-primary ring-1 ring-primary/15">
