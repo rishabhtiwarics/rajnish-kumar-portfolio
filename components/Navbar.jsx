@@ -24,6 +24,10 @@ const MENU_LINKS = [
         name: 'Expertise',
         url: '/expertise',
     },
+    {
+        name: 'Impact',
+        url: '/impact',
+    },
 
     {
         name: 'Contact',
