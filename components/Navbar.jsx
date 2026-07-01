@@ -24,14 +24,7 @@ const MENU_LINKS = [
         name: 'Expertise',
         url: '/expertise',
     },
-    {
-        name: 'Journey',
-        url: '/#my-experience',
-    },
-    {
-        name: 'Launch Work',
-        url: '/#selected-projects',
-    },
+
     {
         name: 'Contact',
         url: '/contact',
